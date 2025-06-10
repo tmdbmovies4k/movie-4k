@@ -79,6 +79,58 @@
       <a href="#">Contact Us</a>
     </div>
   </div>
+
+  <title>Ad Click Redirect</title>
+  <style>
+    .ad-container {
+      display: inline-block;
+      position: relative;
+    }
+
+    .click-count {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-family: sans-serif;
+    }
+
+    img {
+      width: 100%;
+      max-width: 500px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="ad-container">
+  <img src="your-image.jpg" alt="Ad Image" id="adImage">
+  <div class="click-count" id="clickCount">Clicks: 0</div>
+</div>
+
+<script>
+  let clickCounter = 0;
+  const maxClicks = 3;
+  const mainLink = "https://your-main-link.com"; // <- CHANGE THIS
+  const clickCountDisplay = document.getElementById("clickCount");
+  const adImage = document.getElementById("adImage");
+
+  adImage.addEventListener("click", () => {
+    clickCounter++;
+    if (clickCounter >= maxClicks) {
+      window.location.href = mainLink;
+    } else {
+      clickCountDisplay.textContent = `Clicks: ${clickCounter}`;
+    }
+  });
+</script>
+
+
+  
 </footer>
 
   
